@@ -13,7 +13,9 @@ var cheerio = require("cheerio");
 var app = express();
 
 app.use(bodyParser());
-app.use(express.static("views"));
+app.set('view engine', 'ejs');
+//link to the css file for ejs
+app.use('/assets', express.static('assets'));
 
 //databse configuration
 var databaseUrl = "news";
@@ -54,30 +56,9 @@ function updateDb(title, content, link, comments) {
     );
 };
 
-// app.post('/insert', function(req,res){
-//     console.log(req.body);
-//     var array = [];
-//     var noArray = [];
-//     var userComment = req.body.commentid;
-//     for (var i=0; i<userComment.length; i++){
-//         if(userComment[i] != ''){
-//             array.push(userComment[i]);
-//         }
-//     }
-//     console.log(array);
-//     var data = {
-//         'comment' : array
-//     }
-//     db.collection('comments').insertOne(data, function(error,collection){
-//         if(error) throw error;
-//         console.log('recorded successfully');
-//     })
-//     res.redirect('/');
-        
-// });
 
 app.get("/scrape", function(req,res){
-    axios.get("https://www.cnn.com/world").then(function(response){
+    axios.get("https://www.nbcbayarea.com/").then(function(response){
         var $ = cheerio.load(response.data);
         $("span.cd__headline-text").each(function(i, element){
             var title = $(element).text();
@@ -100,7 +81,7 @@ app.get("/scrape", function(req,res){
             // }
         });
     });
-    res.send("scraping done");
+    res.send("scraping completed");
 });
 
 
