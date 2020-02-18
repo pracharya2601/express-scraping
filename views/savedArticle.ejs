@@ -1,0 +1,53 @@
+<!-- <% include ./partials/header%>
+<div class="container main">
+    <% if (results.length == 0) { %>
+        <h1 class="text-center">You do not have saved articles</h1>
+    <% } else { %>
+        <% for (var i = 0; i < results.length; i++) { %>
+            <div class="thumbnail" style="padding: 1%;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="<%= results[i].Image%>" alt="Image">
+                    </div>
+                    <div class="col-md-9">
+                        <h1><%= results[i].Title %></h1>
+                        <h4><%= results[i].Content %></h4>
+                        <a href="<%= results[i].Link %>" style="font-size: 20px;">Read more</a>
+                        <div style="width: 50%;">
+                                <% if (results[i].Comments) {%>
+                                    <br><br>
+                                            <% for (let p = 0; p < results[i].Comments.length; p++) { %>
+                                                <p  style="font-size: 25px; width: 50%; display: inline;">Comment <%=p + 1%>: <span><%= results[i].Comments[p]%></span> 
+                                                    <span class="pull-right">
+                                                        <form class="pull-right" style="display: inline;" action="/deleteComment" method="POST">
+                                                            <input type="hidden" name="comment" value="<%= results[i].Comments[p]%>">
+                                                            <input type="hidden" name="id" value="<%= results[i]._id%>">
+                                                            <button>X</button>
+                                                        </form>
+                                                    </span>
+                                                </p>
+                                    <% } %>
+        
+                                <% } %>
+                        </div>
+                        <br>
+                    <form action="/addComment" method="POST">
+                        <input type="hidden" name="id" value="<%= results[i]._id%>">
+                        <input type="text" name="newComment" style="width:50%; font-size: 20px; padding-left: 5px;" placeholder="Write a comment here"><br><br>
+                        <div>
+                            <button class="btn btn-primary btn-lg pull-center">Comment</button>
+                        </div>
+                    </form>
+                    <form action="/deleteArticle" method="POST">
+                        <input type="hidden" name="id" value="<%= results[i]._id%>">
+                        <button class="btn btn-primary btn-lg pull-right">Delete Article</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+            <% } %>
+    <% } %>
+</div>
+<% include ./partials/footer%>
+</body>
+</html> -->
