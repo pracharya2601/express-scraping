@@ -34,7 +34,7 @@ https://www.mongodb.com/
 
 <h2>Screenshot</h2>
 <div align="center">
-    <img src="public/assets/a.png" width="500px"> 
+    <img src="public/assets/b.png" width="500px"> 
 </div>
 
 <div align="center">
