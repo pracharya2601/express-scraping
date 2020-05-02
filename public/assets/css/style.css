@@ -1,0 +1,19 @@
+
+.display-4 {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.lead {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.btn-primary {
+  background-color: #345c43;
+  color: white !important;
+}
+
+.note-item-list {
+  padding: 5px;
+}

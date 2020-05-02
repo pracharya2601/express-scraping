@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">News Scraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+      <a class="nav-item nav-link" href="/saved">Saved articles</a>
+      </li>
+      <li class="nav-item active">
+      <a class="btn btn-primary scrape-new">Get new articles</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <h3 class="display-7">NBC BAY AREA</h3>
+  <p>Get the latest from NBC Bay Area</p>
+</div>
+
+<div class="container article-container">
+  <h3>Articles</h3>
+  {{#each articles}}
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <a href="{{link}}" class="card-link" target="_blank">View article on TechCrunch</a>
+        <p class="card-text">{{intro}}...</p>
+        <a data-articleId="{{_id}}" class="btn btn-primary save-btn">Save article</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
